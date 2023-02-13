@@ -6,7 +6,7 @@ on:
     branches: [ main ]
 jobs:
   build:
-    runs_on: [ ubuntu-latest, macos-latest, windows-latest ]
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
@@ -16,5 +16,9 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       - name: Build with Maven
-        run: mvn -B package --file pom.xml    
+        run: mvn -B package --file pom.xml
+      - name: SonarCloud Scan
+        run: mvn org.sonarsource.scanner.maven:sonar   
+
+        
    
