@@ -111,6 +111,7 @@
                                             <element>CLASS</element>
                                             <excludes>
                                                 <exclude>*Test</exclude>
+                                                <exclude>*/model/*</exclude>
                                             </excludes>
                                             <limits>
                                                 <limit>
