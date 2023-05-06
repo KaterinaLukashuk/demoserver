@@ -2,6 +2,7 @@ package org.example.web;
 
 
 import lombok.RequiredArgsConstructor;
+import org.example.dto.UserDto;
 import org.example.model.User;
 import org.example.service.UserService;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -37,7 +38,11 @@ public class UserController {
     }
 
     @PostMapping("/users")
-    public User addUser(@RequestBody User user) {
+    public User addUser(@RequestBody UserDto userDto) {
+        User user = User.builder()
+                .id(userDto.getId())
+                .name(userDto.getName())
+                .build();
         return userService.addUser(user);
     }
 
